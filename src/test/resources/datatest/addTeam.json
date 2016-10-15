@@ -1,0 +1,14 @@
+{
+  "team": "FC. Barcelona",
+  "city": "Barcelona",
+  "owner": "Bartomeu",
+  "competition": "La Liga",
+  "players": [
+    "Messi",
+    "Suarez",
+    "Neymar",
+    "Iniesta",
+    "Pique"
+  ],
+  "creationDate": "2016-10-14 12:55:48"
+}
