@@ -36,6 +36,7 @@ You should see a `BUILD SUCCESS` at the end of the previous command. Is importan
 
 To build the Docker image and start the Docker container run following comands.
 
+```
 $ docker build -t sis-test .
 
 $ docker run -p 8080:8080 -t sis-test
