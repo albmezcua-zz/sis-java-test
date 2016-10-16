@@ -55,6 +55,7 @@ $ docker ps -a
 
 Once the application is running in the docker container you can now start to use the application. There are 3 different endpoints, all of them are secured so it needs to send some details in the headers
 
+For reference you can consult football_teams.sql to see database structure and data.
 
 ```
 Use below one as valid headers for authorization
@@ -63,7 +64,8 @@ X-SIS-UserId :1234-1234-1234-1234
 Secret:secret-sis
 
 ```
-Please find below all the endpoints with a brief description about how to use them: (for reference see football_teams.sql ti see database structure and data)
+Please find below all the endpoints with a brief description about how to use them:
+
 1. (GET) http://localhost:8080/football-teams-api/teams/list --> it will return a list with all teams existing in the HSQLDB, no parameters are need it apart from header as above indicated.
 2. (GET) http://localhost:8080/football-teams-api/teams/1 --> It will return an specific team based on the id passed if it exists otherwise "No Team Found" will be returned
 3. (POST) http://localhost:8080/football-teams-api/teams/add --> Create a new team if no id is passed, otherwise it will update the team if already exists or return "No Team found". An example of the body to be sent is attached in the repository under "src/test/resources/datatest/addTeam.json"
