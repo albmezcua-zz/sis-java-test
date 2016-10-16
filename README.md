@@ -55,7 +55,7 @@ $ docker ps -a
 
 Once the application is running in the docker container you can now start to use the application. There are 3 different endpoints, all of them are secured so it needs to send some details in the headers
 
-For reference you can consult football_teams.sql to see database structure and data.
+For reference you can consult football_teams.sql to see database structure and data and also it has been provided a postman collection under the root project. (FootballTeamsAPI.postman_collection)
 
 ```
 Use below one as valid headers for authorization
