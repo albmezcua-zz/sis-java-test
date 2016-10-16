@@ -74,6 +74,14 @@ Please find below all the endpoints with a brief description about how to use th
 With spring security it intercepts all the request and validate against "User" table if values in headers (X-SIS-UserId and Secret) match with any existing entry in this table. If not entry is found then "Access Denied" will be returned.
 
 
+### Hot start of Tomcat
+
+There is a quicker way to get a Tomcat instance running locally but running outside the Docker container:
+
+```
+$ mvn clean tomcat7:run
+```
+
 
 ## Resources
 

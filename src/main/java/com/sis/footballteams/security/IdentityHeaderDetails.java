@@ -1,8 +1,5 @@
 package com.sis.footballteams.security;
 
-/**
- * Created by lopeza on 15/10/2016.
- */
 public class IdentityHeaderDetails {
     private String userUuid;
     private String secret;

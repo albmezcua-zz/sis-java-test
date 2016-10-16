@@ -2,7 +2,6 @@ package com.sis.footballteams.security;
 
 import com.sis.footballteams.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
@@ -10,9 +9,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by lopeza on 15/10/2016.
- */
 @Component
 public class IdentityAuthenticationProvider implements AuthenticationProvider {
     private static final Authentication CANNOT_AUTHENTICATE_DETAILS = null;

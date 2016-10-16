@@ -8,9 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by lopeza on 15/10/2016.
- */
+
 @Component
 public class IdentityPreAuthenticatedProcessingFilter extends AbstractPreAuthenticatedProcessingFilter {
     @Autowired
