@@ -59,7 +59,7 @@ Once the application is running in the docker container you can now start to use
 Use below one as valid headers for authorization
 
 X-SIS-UserId :1234-1234-1234-1234
-Secret:sis-test
+Secret:secret-sis
 
 ```
 Please find below all the endpoints with a brief description about how to use them: (for reference see football_teams.sql ti see database structure and data)
