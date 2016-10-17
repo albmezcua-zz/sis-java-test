@@ -1,6 +1,8 @@
 package com.sis.footballteams.config;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sis.footballteams.security.AuthenticationInvalidResponse;
 import com.sis.footballteams.security.IdentityAuthenticationProvider;
 import com.sis.footballteams.security.IdentityPreAuthenticatedProcessingFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -24,14 +25,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private IdentityPreAuthenticatedProcessingFilter identityPreAuthenticationFilter;
 
+    @Autowired
+    AuthenticationInvalidResponse invalidResponse;
+
+
     public SecurityConfig() {
     }
 
     protected void configure(HttpSecurity http) throws Exception {
-        ((ExpressionUrlAuthorizationConfigurer.AuthorizedUrl)(
-                (HttpSecurity)http.addFilter(this.identityPreAuthenticationFilter)
-                        .csrf().disable())
-                .authorizeRequests().antMatchers(new String[]{"/**"})).access("isAuthenticated()");
+        http
+                .exceptionHandling().authenticationEntryPoint(invalidResponse)
+                .and()
+                .addFilter(this.identityPreAuthenticationFilter)
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/**").access("isAuthenticated()");
     }
 
 
@@ -42,6 +50,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
+    }
+
+
+    @Bean
+    public ObjectMapper objectMapper(){
+        return new ObjectMapper();
     }
 
 }
